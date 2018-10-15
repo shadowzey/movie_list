@@ -28,4 +28,22 @@ public class MovieController {
         Integer mId = movieService.changeStatus(id);
         return "redirect:/movie";
     }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(@RequestParam("id") Integer id) throws Exception{
+        Integer mId = movieService.delete(id);
+        return "redirect:/movie";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String add(Model model) throws Exception{
+        model.addAttribute("movie", new Movie());
+        return "movieAdd";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String create(@ModelAttribute Movie movie) throws Exception{
+        movieService.insert(movie.getTitle(), movie.getDirector(), movie.getMain_actor(), movie.getTag(), movie.getStatus());
+        return "redirect:/movie";
+    }
 }

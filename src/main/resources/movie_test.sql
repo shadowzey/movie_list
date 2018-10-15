@@ -5,7 +5,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `movie`;
 CREATE TABLE `movie` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar (100) DEFAULT NULL,
   `director` varchar(50) DEFAULT NULL,
   `main_actor` varchar(50) DEFAULT NULL,
