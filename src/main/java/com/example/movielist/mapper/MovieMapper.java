@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MovieMapper{
 
-    @Select("select * from movie")
+    @Select("select * from movie order by status")
     List<Movie> listAllMovie();
 
     @Select("select * from movie where id = #{id}")
